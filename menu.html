@@ -10,24 +10,25 @@
 </head>
 <body class="font-roboto">
     <!-- Header -->
-    <header class="bg-white shadow-md">
+    <header class="bg-gray-800 shadow-md">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-gray-800">Victory</a>
             <nav>
                 <div class="space-x-4">
-                    <a href="index.html" class="text-gray-700 hover:text-gray-900">Home</a>
-                    <a href="menu.html" class="text-gray-700 hover:text-gray-900">Our Menus</a>
-                    <a href="Dashboard.html" class="text-gray-700 hover:text-gray-900">Chef Dashboard</a>
+                    <a href="index.html" class="text-white hover:text-red-600">Home</a>
+                    <a href="menu.html" class="text-white hover:text-red-600">Our Menus</a>
+                    <a href="Dashboard.html" class="text-white hover:text-red-600">Chef Dashboard</a>
+                    <a href="reservation.html" class="text-white hover:text-red-600">reservation</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <!-- Page Heading -->
-    <section class="bg-gray-100 py-16">
+    <section class="py-16 my-16 mx-16" style="background-image: url('img/signup-bg.jpg'); background-size: cover; background-position: center;">
         <div class="container mx-auto text-center">
-            <h1 class="text-4xl font-bold mb-4">Our Menus</h1>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            <h1 class="text-4xl font-bold mb-4 text-white">Our Menus</h1>
+            <p class="text-lg text-white max-w-2xl mx-auto">
                 Curabitur at dolor sed felis lacinia ultricies sit amet vel sem. Vestibulum diam leo, sodales tempor lectus sed, varius gravida mi.
             </p>
         </div>
@@ -39,7 +40,7 @@
         <div class="container mx-auto mb-16">
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div class="order-2 md:order-1">
-                    <img src="img/breakfast_menu.jpg" alt="Breakfast" class="w-full rounded-lg shadow-lg">
+                    <img src="img/breakfast_menu.jpg" alt="Breakfast" class="max-w-md rounded-lg shadow-lg">
                 </div>
                 <div class="order-1 md:order-2">
                     <h2 class="text-3xl font-bold mb-8">Breakfast Menu</h2>
@@ -124,7 +125,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="img/lunch_menu.jpg" alt="Lunch" class="w-full rounded-lg shadow-lg">
+                    <img src="img/lunch_menu.jpg" alt="Lunch" class="max-w-md rounded-lg shadow-lg">
                 </div>
             </div>
         </div>
@@ -133,7 +134,7 @@
         <div class="container mx-auto">
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div class="order-2 md:order-1">
-                    <img src="img/dinner_menu.jpg" alt="Dinner" class="w-full rounded-lg shadow-lg">
+                    <img src="img/dinner_menu.jpg" alt="Dinner" class="max-w-md rounded-lg shadow-lg">
                 </div>
                 <div class="order-1 md:order-2">
                     <h2 class="text-3xl font-bold mb-8">Dinner Menu</h2>
@@ -242,16 +243,5 @@
             <p>Designed by <em>Hanane Oubaha</em></p>
         </div>
     </footer>
- <!-- Smooth Scroll Script -->
- <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-</script>
 </body>
 </html>
