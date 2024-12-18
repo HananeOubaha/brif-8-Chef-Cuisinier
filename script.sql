@@ -1,5 +1,4 @@
 
-
 CREATE DATABASE chef_cuisine;
 USE chef_cuisine;
 
