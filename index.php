@@ -30,8 +30,8 @@
             <h2 class="text-5xl font-bold mb-4">MAMA CHEF</h2>
             <p class="text-lg mb-6">"Vivez une expérience unique avec un chef de renommée mondiale : <br> menus exclusifs, cuisine raffinée et moments inoubliables, <br> directement à domicile."</p>
             <div class="flex justify-center gap-4">
-                <a href="sign-up.html" class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition">sign up </a>
-                <a href="log-in.html" class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition">log in </a>
+                <a href="sign-up.php" class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition">sign up </a>
+                <a href="log-in.php" class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition">log in </a>
             </div>
         </div>
     </section>

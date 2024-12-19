@@ -1,12 +1,20 @@
 
-CREATE DATABASE chef_cuisine;
-USE chef_cuisine;
+CREATE DATABASE chef_order;
+USE chef_order;
 
-
+-- table roles 
 CREATE TABLE roles (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titre VARCHAR(50) NOT NULL UNIQUE
 );
+-- Insérer le rôle 'chef' avec id = 1
+INSERT INTO roles (id, titre) 
+VALUES (1, 'chef');
+
+-- Insérer le rôle 'client' avec id = 2
+INSERT INTO roles (id, titre) 
+VALUES (2, 'client');
+
 -- Table Users
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,

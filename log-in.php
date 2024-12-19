@@ -24,7 +24,7 @@
     <section class="min-h-screen flex items-center justify-center">
         <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
             <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Login to Your Account</h2>
-            <form id="loginForm" method="POST" class="space-y-6">
+            <form id="loginForm" action="login.php" method="POST" class="space-y-6">
                 <!-- Email -->
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
@@ -76,7 +76,7 @@
             </form>
             
             <p class="text-sm text-center text-gray-600 mt-4">
-                Don't have an account? <a href="sign-up.html" class="text-blue-600 hover:underline">Sign Up</a>
+                Don't have an account? <a href="sign-up.php" class="text-blue-600 hover:underline">Sign Up</a>
             </p>
         </div>
     </section>
@@ -137,3 +137,39 @@
     </footer>
 </body>
 </html>
+
+<?php
+include 'db.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+    // Vérifier si l'utilisateur existe
+    $query = "SELECT * FROM users WHERE email = '$email'";
+    $result = mysqli_query($conn, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $user = mysqli_fetch_assoc($result);
+
+        // Vérifier le mot de passe
+        if (password_verify($password, $user['password'])) {
+            // Démarrer une session
+            session_start();
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['role_id'] = $user['role_id'];
+
+            // Redirection en fonction du rôle
+            if ($user['role_id'] == 1) { // ID pour les chefs
+                header('Location: Dashbord.php');
+            } else { // Autres utilisateurs
+                header('Location: index.php');
+            }
+        } else {
+            echo "Mot de passe incorrect.";
+        }
+    } else {
+        echo "Aucun compte trouvé avec cet email.";
+    }
+}
+?>
