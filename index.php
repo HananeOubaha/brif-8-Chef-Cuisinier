@@ -122,19 +122,6 @@
             <p>Designed by <em>Hanane Oubaha</em></p>
         </div>
     </footer>
-    
-
-    <!-- Smooth Scroll Script -->
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
 

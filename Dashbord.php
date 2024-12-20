@@ -25,7 +25,7 @@
     <!-- Add Menu Section -->
     <section class="bg-white shadow-md rounded-lg p-6 mb-8">
         <h2 class="text-xl font-semibold text-gray-700 mb-4">Créer un Menu</h2>
-        <form id="menu-form" class="space-y-4">
+        <form id="menu-form" class="space-y-4" action="Dashbord.php" method="POST" enctype="multipart/form-data">
             <div>
                 <label for="menu-title" class="block text-gray-600 font-medium">Titre du Menu</label>
                 <input type="text" id="menu-title" name="title" class="w-full border rounded-lg px-4 py-2 focus:ring focus:ring-blue-300" required>
@@ -58,21 +58,21 @@
 <div id="plat-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
     <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
         <h3 class="text-xl font-semibold mb-4">Ajouter un Plat</h3>
-        <form id="plat-form" class="space-y-4">
+        <form id="plat-form" class="space-y-4" action="Dashbord.php" method="POST" enctype="multipart/form-data">
             <div>
                 <label for="plat-name" class="block text-gray-600 font-medium">Nom du Plat</label>
-                <input type="text" id="plat-name" class="w-full border rounded-lg px-4 py-2 focus:ring focus:ring-blue-300" required>
+                <input type="text" id="plat-name" class="w-full border rounded-lg px-4 py-2 " required>
             </div>
             <div>
                 <label for="plat-ingredients" class="block text-gray-600 font-medium">Ingrédients</label>
-                <textarea id="plat-ingredients" class="w-full border rounded-lg px-4 py-2 focus:ring focus:ring-blue-300" rows="3" required></textarea>
+                <textarea id="plat-ingredients" class="w-full border rounded-lg px-4 py-2 " rows="3" required></textarea>
             </div>
             <div>
                 <label for="plat-image" class="block text-gray-600 font-medium">Image du Plat</label>
-                <input type="file" id="plat-image" class="w-full border rounded-lg px-4 py-2 focus:ring focus:ring-blue-300" accept="image/*" required>
+                <input type="file" id="plat-image" class="w-full border rounded-lg px-4 py-2 " accept="image/*" required>
             </div>
             <div class="flex justify-end space-x-4 mt-4">
-                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">Ajouter</button>
+                <button type="submit" class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orang-600">Ajouter</button>
                 <button type="button" id="close-modal" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Annuler</button>
             </div>
         </form>
@@ -159,12 +159,13 @@ menuForm.addEventListener('submit', (e) => {
 </script>
 </body>
 </html> 
-  <!-- Reservation Management Section -->
-  <!-- <section class="bg-white shadow-md rounded-lg p-6 mb-8">
+</script>
+<!-- Reservation Management Section -->
+<section class="bg-white shadow-md rounded-lg p-6 mb-8">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">Gestion des Réservations</h2>
-            <ul id="reservation-list" class="space-y-4"> -->
+            <ul id="reservation-list" class="space-y-4">
                 <!-- Sample reservation item  -->
-                 <!-- <li class="bg-gray-50 p-4 rounded-lg shadow flex justify-between items-center">
+                 <li class="bg-gray-50 p-4 rounded-lg shadow flex justify-between items-center">
                     <div>
                         <p class="text-gray-700 font-medium">Client: John Doe</p>
                         <p class="text-gray-500 text-sm">Date: 17/12/2024</p>
@@ -175,10 +176,10 @@ menuForm.addEventListener('submit', (e) => {
                     </div>
                 </li>
           </ul>  
-        </section>  -->
+        </section> 
 
         <!-- Statistics Section -->
-       <!-- <section class="bg-white shadow-md rounded-lg p-6">
+       <section class="bg-white shadow-md rounded-lg p-6">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">Statistiques</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div class="bg-blue-100 p-4 rounded-lg text-center">
@@ -200,4 +201,3 @@ menuForm.addEventListener('submit', (e) => {
             </div>
         </section>
     </main>
-</script> -->

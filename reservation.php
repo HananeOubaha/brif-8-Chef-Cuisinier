@@ -31,7 +31,7 @@
             <!-- Form Section -->
             <div class="p-8 lg:w-1/2">
                 <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">Reserve Your Culinary Experience</h2>
-                <form action="/reserve" method="POST" class="space-y-6">
+                <form action="reservation.php"  method="POST" class="space-y-6">
                     <!-- Select Menu -->
                     <div>
                         <label for="menu" class="block text-sm font-medium text-gray-700">Select Menu</label>
@@ -39,7 +39,7 @@
                             id="menu" 
                             name="menu_id" 
                             required 
-                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm ">
                             <option value="" disabled selected>Select a menu</option>
                             <option value="1">Menu 1: Gourmet Delights</option>
                             <option value="2">Menu 2: Chef's Special</option>
@@ -55,7 +55,7 @@
                             id="date" 
                             name="date" 
                             required
-                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm ">
                     </div>
 
                     <!-- Time -->
@@ -66,7 +66,7 @@
                             id="time" 
                             name="time" 
                             required
-                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm ">
                     </div>
 
                     <!-- Number of People -->
@@ -79,14 +79,14 @@
                             min="1" 
                             placeholder="Enter number of people" 
                             required
-                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm ">
                     </div>
 
                     <!-- Submit Button -->
                     <div>
                         <button 
                             type="submit" 
-                            class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                            class="w-full bg-red-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-orange-600 transition duration-300">
                             Reserve Now
                         </button>
                     </div>
