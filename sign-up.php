@@ -67,7 +67,7 @@
                 </div>
 
                 <!-- Role -->
-                <div>
+                <!-- <div>
                     <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
                     <select 
                         id="role" 
@@ -78,7 +78,7 @@
                         <option value="2">Utilisateur</option>
                         <option value="1">Chef</option>
                     </select>
-                </div>
+                </div> -->
 
                 <!-- Submit Button -->
                 <div>
@@ -155,52 +155,51 @@
 </body>
 </html>
 <?php
-include 'db.php';
+include 'db.php'; // Inclure la connexion à la base de données
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = $_POST['password'];
-    $role_id = intval($_POST['role_id']);
+// Ajouter un utilisateur chef si ce dernier n'existe pas
+$chefName = 'Hanane Hanane';
+$chefEmail = 'hanane@gmail.com';
+$chefPassword = password_hash('hanane2002', PASSWORD_BCRYPT);
+$chefRoleId = 1;
 
-    // Vérifier si l'utilisateur existe déjà
-    $checkUser = "SELECT * FROM users WHERE email = ?";
-    $stmtCheck = mysqli_prepare($conn, $checkUser);
+// Vérifier si l'utilisateur chef existe déjà
+$result = mysqli_query($conn, "SELECT id FROM users WHERE email='$chefEmail' AND role_id=$chefRoleId");
 
-    if ($stmtCheck) {
-        mysqli_stmt_bind_param($stmtCheck, "s", $email);
-        mysqli_stmt_execute($stmtCheck);
-        $result = mysqli_stmt_get_result($stmtCheck);
-
-        if (mysqli_num_rows($result) > 0) {
-            echo "Cet email est déjà enregistré.";
-        } else {
-            // Hasher le mot de passe
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-            // Insérer un nouvel utilisateur
-            $query = "INSERT INTO users (name, email, password, role_id) VALUES (?, ?, ?, ?)";
-            $stmtInsert = mysqli_prepare($conn, $query);
-
-            if ($stmtInsert) {
-                mysqli_stmt_bind_param($stmtInsert, "sssi", $name, $email, $hashedPassword, $role_id);
-
-                if (mysqli_stmt_execute($stmtInsert)) {
-                    echo "Inscription réussie. Vous pouvez maintenant vous connecter.";
-                } else {
-                    echo "<p class='text-red-500 text-center'>Erreur lors de l'inscription : " . mysqli_error($conn) . "</p>";
-                }
-                mysqli_stmt_close($stmtInsert);
-            } else {
-                echo "<p class='text-red-500 text-center'>Erreur lors de la préparation de la requête : " . mysqli_error($conn) . "</p>";
-            }
-        }
-
-        mysqli_stmt_close($stmtCheck);
+if (mysqli_num_rows($result) == 0) {
+    // Insérer le chef
+    $query = "INSERT INTO users (name, email, password, role_id) VALUES ('$chefName', '$chefEmail', '$chefPassword', $chefRoleId)";
+    if (mysqli_query($conn, $query)) {
+        echo "Utilisateur chef ajouté avec succès.<br>";
     } else {
-        echo "<p class='text-red-500 text-center'>Erreur lors de la préparation de la requête : " . mysqli_error($conn) . "</p>";
+        echo "Erreur : " . mysqli_error($conn) . "<br>";
     }
 }
 
+// Gérer l'inscription des utilisateurs standard
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+    $role_id = 2; // Rôle par défaut : client
+
+    if (empty($name) || empty($email) || empty($password)) {
+        echo "Tous les champs sont obligatoires.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Adresse email invalide.";
+    } else {
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+        $query = "INSERT INTO users (name, email, password, role_id) VALUES ('$name', '$email', '$hashedPassword', $role_id)";
+        if (mysqli_query($conn, $query)) {
+            header('Location: log-in.php');
+            exit();
+        } else {
+            echo "Erreur lors de l'inscription : " . mysqli_error($conn);
+        }
+    }
+}
+
+// Fermer la connexion à la base de données
 mysqli_close($conn);
 ?>
+

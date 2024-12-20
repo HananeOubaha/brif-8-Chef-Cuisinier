@@ -1,14 +1,14 @@
 <?php
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "chef_cuisine";
+$host = 'localhost';
+$user = 'root';
+$password = '';
+$dbname = 'chef_order';
 
 // Connexion à la base de données
-$conn = mysqli_connect($host, $username, $password, $database);
+$conn = mysqli_connect($host, $user, $password, $dbname);
 
-// Vérifier la connexion
+// Vérification de la connexion
 if (!$conn) {
-    die("Échec de la connexion : " . mysqli_connect_error());
+    die('Erreur : Impossible de se connecter à la base de données. ' . mysqli_connect_error());
 }
 ?>
