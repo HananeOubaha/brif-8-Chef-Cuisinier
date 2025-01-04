@@ -1,6 +1,6 @@
 <?php
-session_start(); // Démarrer la session
-include 'db.php'; // Connexion à la base de données
+session_start(); 
+include 'db.php'; 
 
 // Vérifier si le formulaire est soumis
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -30,9 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 // Redirection en fonction du rôle
                 if ($user['role_id'] == 1) {
-                    header("Location: Dashbord.php"); // Page pour les chefs
+                    header("Location: Dashbord.php"); 
                 } else {
-                    header("Location: menu.php"); // Page pour les clients
+                    header("Location: menu.php"); 
                 }
                 exit();
             } else {
@@ -44,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-// Fermer la connexion à la base de données
 mysqli_close($conn);
 ?>
 

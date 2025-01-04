@@ -155,9 +155,7 @@
 </body>
 </html>
 <?php
-include 'db.php'; // Inclure la connexion à la base de données
-
-// Ajouter un utilisateur chef si ce dernier n'existe pas
+include 'db.php'; 
 $chefName = 'Hanane Hanane';
 $chefEmail = 'hanane@gmail.com';
 $chefPassword = password_hash('hanane2002', PASSWORD_BCRYPT);

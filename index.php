@@ -16,7 +16,6 @@
                 <div class="space-x-4">
                     <a href="index.php" class="text-white hover:text-red-600">Home</a>
                     <a href="menu.php" class="text-white hover:text-red-600">Our Menus</a>
-                    <a href="Dashbord.php" class="text-white hover:text-red-600">Chef Dashboard</a>
                     <a href="reservation.php" class="text-white hover:text-red-600">reservation</a>
                 </div>
             </nav>
